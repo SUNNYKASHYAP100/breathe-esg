@@ -1,0 +1,21 @@
+{
+  "name": "breathe-esg-backend",
+  "version": "1.0.0",
+  "description": "Breathe ESG - ESG Data Ingestion and Review Platform",
+  "buildCommand": "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput",
+  "devCommand": "python manage.py runserver",
+  "env": {
+    "DEBUG": {
+      "value": "False"
+    },
+    "ALLOWED_HOSTS": {
+      "value": "localhost,127.0.0.1"
+    },
+    "SECRET_KEY": {
+      "description": "Django secret key - set a strong random value"
+    },
+    "DATABASE_URL": {
+      "description": "PostgreSQL database URL"
+    }
+  }
+}

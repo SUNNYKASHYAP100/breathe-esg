@@ -1,0 +1,5 @@
+Plant,Menge,Unit,Date,Description
+Plant01,500,L,2024-02-10,Diesel fuel purchase
+Plant02,300,L,2024-02-11,Gasoline refill
+Plant01,200,L,2024-02-12,Diesel fuel purchase
+Plant03,100,gal,2024-02-13,Emergency generator fuel

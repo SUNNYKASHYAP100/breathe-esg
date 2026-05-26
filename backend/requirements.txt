@@ -1,0 +1,13 @@
+Django==6.0.5
+djangorestframework==3.17.1
+python-decouple==3.8
+psycopg2-binary==2.9.12
+pandas==3.0.3
+openpyxl==3.1.5
+requests==2.34.2
+celery==5.6.3
+redis==7.4.0
+django-cors-headers==4.3.1
+django-filter==24.1
+drf-spectacular==0.30.0
+gunicorn==22.0.0
