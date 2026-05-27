@@ -5,7 +5,7 @@
   "buildCommand": "npm install && npm run build",
   "devCommand": "npm start",
   "env": {
-    "REACT_APP_API_BASE_URL": {
+    "REACT_APP_API_URL": {
       "value": "http://localhost:8000/api"
     }
   }

@@ -77,27 +77,36 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
-DATABASES = {
-    'default': {
-        'ENGINE': config(
-            'DB_ENGINE',
-            default='django.db.backends.sqlite3'
-        ),
+DATABASE_URL = config('DATABASE_URL', default='')
 
-        'NAME': config(
-            'DB_NAME',
-            default=str(BASE_DIR / 'db.sqlite3')
-        ),
+if DATABASE_URL:
+    import dj_database_url
 
-        'USER': config('DB_USER', default=''),
-
-        'PASSWORD': config('DB_PASSWORD', default=''),
-
-        'HOST': config('DB_HOST', default=''),
-
-        'PORT': config('DB_PORT', default='5432'),
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': config(
+                'DB_ENGINE',
+                default='django.db.backends.sqlite3'
+            ),
+
+            'NAME': config(
+                'DB_NAME',
+                default=str(BASE_DIR / 'db.sqlite3')
+            ),
+
+            'USER': config('DB_USER', default=''),
+
+            'PASSWORD': config('DB_PASSWORD', default=''),
+
+            'HOST': config('DB_HOST', default=''),
+
+            'PORT': config('DB_PORT', default='5432'),
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
