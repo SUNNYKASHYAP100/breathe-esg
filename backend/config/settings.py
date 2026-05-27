@@ -5,6 +5,7 @@ Django settings for Breathe ESG backend
 import os
 from pathlib import Path
 from decouple import config
+from django.core.exceptions import ImproperlyConfigured
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,7 +14,7 @@ SECRET_KEY = config(
     default='django-insecure-breathe-esg-dev-key'
 )
 
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config(
     'ALLOWED_HOSTS',
@@ -86,6 +87,11 @@ if DATABASE_URL:
         'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
     }
 else:
+    if not DEBUG:
+        raise ImproperlyConfigured(
+            'DATABASE_URL must be set in production. Set the Render environment variable DATABASE_URL to your PostgreSQL connection string.'
+        )
+
     DATABASES = {
         'default': {
             'ENGINE': config(

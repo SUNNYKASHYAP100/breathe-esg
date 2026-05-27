@@ -78,6 +78,10 @@ SECRET_KEY = (generate a new one or use an existing one)
 CORS_ALLOWED_ORIGINS = https://your-frontend-url.onrender.com
 ```
 
+> Important: If `DATABASE_URL` is missing in Render, Django will fall back to SQLite and the production site may show `no such table` errors. Make sure this variable is set before redeploying.
+>
+> Also confirm `DEBUG=false` so production uses secure settings.
+
 To generate a new SECRET_KEY, run this in Python:
 ```python
 from django.core.management.utils import get_random_secret_key
