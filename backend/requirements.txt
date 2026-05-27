@@ -11,3 +11,4 @@ django-cors-headers==4.3.1
 django-filter==24.1
 drf-spectacular==0.30.0
 gunicorn==22.0.0
+python-3.11.9
