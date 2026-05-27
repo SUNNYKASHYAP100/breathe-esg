@@ -15,7 +15,7 @@ const Dashboard = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     loadData();
-  }, [filter]);
+}, [filter, loadData]);
 
   const loadData = async () => {
     setLoading(true);
