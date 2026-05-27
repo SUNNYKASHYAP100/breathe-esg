@@ -48,7 +48,7 @@ Dashboard available at: http://localhost:3000
 **Frontend (Vercel recommended):**
 1. Push to GitHub
 2. Link repo to Vercel
-3. Set env var: `REACT_APP_API_BASE_URL=https://your-backend.railway.app/api`
+3. Set env var: `REACT_APP_API_URL=https://your-backend.railway.app/api`
 4. Deploy
 
 ### Database
@@ -88,7 +88,7 @@ MVP uses basic Django user authentication. Add JWT/OAuth in Phase 2.
 ### Troubleshooting
 
 **CORS errors:**
-- Ensure frontend REACT_APP_API_BASE_URL matches backend URL
+- Ensure frontend `REACT_APP_API_URL` matches backend URL
 - Check CORS_ALLOWED_ORIGINS in settings.py
 
 **Database errors:**
