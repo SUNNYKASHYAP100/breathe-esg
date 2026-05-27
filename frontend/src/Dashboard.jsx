@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Dashboard.css';
 
-const API_BASE_URL = 'https://breathe-esg.onrender.com/api';
+const API_BASE_URL = 'https://breathe-esg-uczd.onrender.com/api';
 
 const Dashboard = () => {
   const [records, setRecords] = useState([]);
