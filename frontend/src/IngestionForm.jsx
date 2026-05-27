@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './IngestionForm.css';
 
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
 
 const IngestionForm = ({ onSuccess }) => {
   const [file, setFile] = useState(null);

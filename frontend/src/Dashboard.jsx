@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Dashboard.css';
 
-const API_BASE_URL = 'https://breathe-esg-uczd.onrender.com/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
 
 const Dashboard = () => {
   const [records, setRecords] = useState([]);
@@ -256,7 +256,7 @@ const Dashboard = () => {
                 className="close-btn"
                 onClick={() => setSelectedRecord(null)}
               >
-                ×
+                &times;
               </button>
             </div>
 
