@@ -1,0 +1,12 @@
+{
+  "name": "breathe-esg-frontend",
+  "version": "1.0.0",
+  "description": "Breathe ESG - React Analyst Dashboard",
+  "buildCommand": "npm install && npm run build",
+  "devCommand": "npm start",
+  "env": {
+    "REACT_APP_API_BASE_URL": {
+      "value": "http://localhost:8000/api"
+    }
+  }
+}
