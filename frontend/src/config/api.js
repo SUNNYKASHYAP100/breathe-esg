@@ -1,7 +1,8 @@
 // API configuration for both development and production
 // Reads from environment variables set by build process
+// When REACT_APP_API_URL is not defined, default to the deployed Render backend.
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://breathe-esg-uczd.onrender.com/api';
 
 export const API_ENDPOINTS = {
   // Ingestion
@@ -18,4 +19,4 @@ export const API_ENDPOINTS = {
   COMPANIES: `${API_BASE_URL}/tenants/companies/`,
 };
 
-export default API_BASE_URL;
+export default API_ENDPOINTS;

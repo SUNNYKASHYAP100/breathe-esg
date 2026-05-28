@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './IngestionForm.css';
-
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+import API_ENDPOINTS from './config/api';
 
 const IngestionForm = ({ onSuccess }) => {
   const [file, setFile] = useState(null);
@@ -49,7 +48,7 @@ const IngestionForm = ({ onSuccess }) => {
       formData.append('company_id', 1); // Default company for MVP
 
       const response = await axios.post(
-        `${API_BASE_URL}/ingestion/jobs/upload/`,
+        API_ENDPOINTS.UPLOAD,
         formData,
         {
           headers: {

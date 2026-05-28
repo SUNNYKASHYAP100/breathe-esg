@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './Dashboard.css';
-
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+import API_ENDPOINTS from './config/api';
 
 const Dashboard = () => {
   const [records, setRecords] = useState([]);
@@ -20,14 +19,14 @@ const Dashboard = () => {
 
       // Load records
       const recordsResponse = await axios.get(
-        `${API_BASE_URL}/review/records/?company_id=${companyId}&status=${filter}`
+        `${API_ENDPOINTS.RECORDS}?company_id=${companyId}&status=${filter}`
       );
 
       setRecords(recordsResponse.data.results || recordsResponse.data);
 
       // Load statistics
       const statsResponse = await axios.get(
-        `${API_BASE_URL}/review/records/statistics/?company_id=${companyId}`
+        `${API_ENDPOINTS.STATISTICS}?company_id=${companyId}`
       );
 
       setStats(statsResponse.data);
@@ -48,7 +47,7 @@ const Dashboard = () => {
   const handleApprove = async (recordId) => {
     try {
       await axios.post(
-        `${API_BASE_URL}/review/records/${recordId}/approve/`,
+        API_ENDPOINTS.APPROVE(recordId),
         { notes: 'Approved by analyst' }
       );
 
@@ -62,7 +61,7 @@ const Dashboard = () => {
   const handleFlag = async (recordId, reason) => {
     try {
       await axios.post(
-        `${API_BASE_URL}/review/records/${recordId}/flag/`,
+        API_ENDPOINTS.FLAG(recordId),
         { reason }
       );
 
@@ -76,7 +75,7 @@ const Dashboard = () => {
   const handleLock = async (recordId) => {
     try {
       await axios.post(
-        `${API_BASE_URL}/review/records/${recordId}/lock/`
+        API_ENDPOINTS.LOCK(recordId)
       );
 
       loadData();

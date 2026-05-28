@@ -367,7 +367,7 @@ Backend (Railway/Render):
 ☐ Collect static files: python manage.py collectstatic --noinput
 
 Frontend (Vercel/Netlify):
-☐ Set REACT_APP_API_URL to production backend URL
+☐ Set REACT_APP_API_o production backend URL
 ☐ Build: npm run build
 ☐ Deploy dist folder
 ```
